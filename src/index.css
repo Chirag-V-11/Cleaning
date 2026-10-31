@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    color: #26352E;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', 'Plus Jakarta Sans', sans-serif;
+  }
+}
+
+/* Glassmorphism & custom utility classes */
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(221, 243, 232, 0.6);
+}
+
+.glass-nav {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(18, 76, 58, 0.08);
+}
+
+.gradient-forest {
+  background: linear-gradient(135deg, #124C3A 0%, #1c6650 100%);
+}
+
+.gradient-subtle {
+  background: linear-gradient(180deg, #FFFFFF 0%, #F7FAF8 100%);
+}
+
+.gradient-mint {
+  background: linear-gradient(135deg, #DDF3E8 0%, #F0F7F4 100%);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #F7FAF8;
+}
+::-webkit-scrollbar-thumb {
+  background: #BDE7D3;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #124C3A;
+}
