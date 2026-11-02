@@ -1,6 +1,7 @@
 import React from 'react';
 import { ShieldCheck, Clock, Sparkles, Award, CalendarCheck, Briefcase, CheckCircle2 } from 'lucide-react';
 import { WHY_CHOOSE_US, BUSINESS_INFO } from '../data/businessInfo';
+import Card3DTilt from './Card3DTilt';
 
 export default function WhyChooseUs() {
   const iconMap = {
@@ -30,37 +31,41 @@ export default function WhyChooseUs() {
           </p>
         </div>
 
-        {/* 6 Feature Pillars Grid */}
+        {/* 6 Feature Pillars Grid with 3D Tilt */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {WHY_CHOOSE_US.map((item, idx) => {
             const Icon = iconMap[item.icon] || Sparkles;
             return (
-              <div
+              <Card3DTilt
                 key={idx}
-                className="bg-white rounded-3xl p-8 border border-mint-200/80 shadow-soft hover:shadow-elevated hover:border-forest-400 transition-all duration-300 flex flex-col justify-between group"
+                maxTilt={12}
+                scale={1.02}
+                className="h-full"
               >
-                <div>
-                  {/* Icon Header */}
-                  <div className="w-14 h-14 rounded-2xl bg-mint-100 text-forest-900 flex items-center justify-center mb-6 group-hover:bg-forest-800 group-hover:text-white transition-colors duration-300">
-                    <Icon className="w-7 h-7" />
+                <div className="bg-white rounded-3xl p-8 border border-mint-200/80 shadow-soft hover:shadow-2xl hover:border-forest-400 transition-all duration-300 flex flex-col justify-between h-full group">
+                  <div>
+                    {/* Icon Header */}
+                    <div className="w-14 h-14 rounded-2xl bg-mint-100 text-forest-900 flex items-center justify-center mb-6 group-hover:bg-forest-800 group-hover:text-white transition-colors duration-300 shadow-sm">
+                      <Icon className="w-7 h-7" />
+                    </div>
+
+                    {/* Title & Description */}
+                    <h3 className="font-display font-bold text-xl text-forest-950 mb-3 group-hover:text-forest-700 transition-colors">
+                      {item.title}
+                    </h3>
+
+                    <p className="text-sm text-charcoal-muted leading-relaxed">
+                      {item.desc}
+                    </p>
                   </div>
 
-                  {/* Title & Description */}
-                  <h3 className="font-display font-bold text-xl text-forest-950 mb-3 group-hover:text-forest-700 transition-colors">
-                    {item.title}
-                  </h3>
-
-                  <p className="text-sm text-charcoal-muted leading-relaxed">
-                    {item.desc}
-                  </p>
+                  {/* Subtle bottom check */}
+                  <div className="pt-6 mt-6 border-t border-gray-100 flex items-center text-xs font-semibold text-emerald-700">
+                    <CheckCircle2 className="w-4 h-4 mr-1.5 text-emerald-600" />
+                    <span>Guaranteed Excellence</span>
+                  </div>
                 </div>
-
-                {/* Subtle bottom check */}
-                <div className="pt-6 mt-6 border-t border-gray-100 flex items-center text-xs font-semibold text-emerald-700">
-                  <CheckCircle2 className="w-4 h-4 mr-1.5 text-emerald-600" />
-                  <span>Guaranteed Excellence</span>
-                </div>
-              </div>
+              </Card3DTilt>
             );
           })}
         </div>

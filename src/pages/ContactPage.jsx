@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Phone, MapPin, Clock, Mail, Navigation, Send, CheckCircle2, AlertCircle, Sparkles, Heart, ArrowLeft, MessageSquare, ShieldCheck, Star } from 'lucide-react';
 import { BUSINESS_INFO } from '../data/businessInfo';
+import Card3DTilt from '../components/Card3DTilt';
 
 export default function ContactPage() {
   const [formState, setFormState] = useState({
@@ -107,102 +108,108 @@ export default function ContactPage() {
           </div>
         </div>
 
-        {/* 3 Contact Info Cards Grid */}
+        {/* 3 Contact Info Cards Grid with 3D Tilt */}
         <div className="grid sm:grid-cols-3 gap-6 mb-12">
           
           {/* Card 1: Phone */}
-          <div className="bg-white rounded-3xl p-6 sm:p-8 border border-mint-200 shadow-soft flex flex-col justify-between">
-            <div>
-              <div className="w-12 h-12 rounded-2xl bg-mint-100 text-forest-800 flex items-center justify-center mb-4">
-                <Phone className="w-6 h-6 text-amber-500" />
+          <Card3DTilt maxTilt={12} scale={1.03}>
+            <div className="bg-white rounded-3xl p-6 sm:p-8 border border-mint-200 shadow-soft flex flex-col justify-between h-full">
+              <div>
+                <div className="w-12 h-12 rounded-2xl bg-mint-100 text-forest-800 flex items-center justify-center mb-4">
+                  <Phone className="w-6 h-6 text-amber-500" />
+                </div>
+                <h2 className="font-display font-bold text-lg text-forest-950 mb-1">
+                  Direct Phone & Text
+                </h2>
+                <p className="text-xs text-charcoal-muted mb-4">
+                  Call or text Rebecca directly for rapid booking, emergency 2-hour cleans, or questions.
+                </p>
+                <a
+                  href={`tel:${BUSINESS_INFO.phoneRaw}`}
+                  className="font-display font-extrabold text-2xl text-forest-800 hover:text-forest-950 transition-colors block"
+                >
+                  {BUSINESS_INFO.phoneDisplay}
+                </a>
               </div>
-              <h2 className="font-display font-bold text-lg text-forest-950 mb-1">
-                Direct Phone & Text
-              </h2>
-              <p className="text-xs text-charcoal-muted mb-4">
-                Call or text Rebecca directly for rapid booking, emergency 2-hour cleans, or questions.
-              </p>
-              <a
-                href={`tel:${BUSINESS_INFO.phoneRaw}`}
-                className="font-display font-extrabold text-2xl text-forest-800 hover:text-forest-950 transition-colors block"
-              >
-                {BUSINESS_INFO.phoneDisplay}
-              </a>
+              <div className="mt-6 flex flex-col gap-2">
+                <a
+                  href={`tel:${BUSINESS_INFO.phoneRaw}`}
+                  className="inline-flex items-center justify-center w-full py-2.5 rounded-xl bg-forest-800 text-white font-bold text-xs hover:bg-forest-900 transition-colors shadow-sm"
+                >
+                  <Phone className="w-3.5 h-3.5 mr-1.5 text-amber-400" />
+                  <span>Call {BUSINESS_INFO.phoneDisplay}</span>
+                </a>
+                <a
+                  href={`sms:${BUSINESS_INFO.phoneRaw}`}
+                  className="inline-flex items-center justify-center w-full py-2.5 rounded-xl bg-mint-100 text-forest-900 font-bold text-xs hover:bg-mint-200 transition-colors border border-mint-300"
+                >
+                  <MessageSquare className="w-3.5 h-3.5 mr-1.5 text-forest-800" />
+                  <span>Send a Text Message</span>
+                </a>
+              </div>
             </div>
-            <div className="mt-6 flex flex-col gap-2">
-              <a
-                href={`tel:${BUSINESS_INFO.phoneRaw}`}
-                className="inline-flex items-center justify-center w-full py-2.5 rounded-xl bg-forest-800 text-white font-bold text-xs hover:bg-forest-900 transition-colors shadow-sm"
-              >
-                <Phone className="w-3.5 h-3.5 mr-1.5 text-amber-400" />
-                <span>Call {BUSINESS_INFO.phoneDisplay}</span>
-              </a>
-              <a
-                href={`sms:${BUSINESS_INFO.phoneRaw}`}
-                className="inline-flex items-center justify-center w-full py-2.5 rounded-xl bg-mint-100 text-forest-900 font-bold text-xs hover:bg-mint-200 transition-colors border border-mint-300"
-              >
-                <MessageSquare className="w-3.5 h-3.5 mr-1.5 text-forest-800" />
-                <span>Send a Text Message</span>
-              </a>
-            </div>
-          </div>
+          </Card3DTilt>
 
           {/* Card 2: Address & Directions */}
-          <div className="bg-white rounded-3xl p-6 sm:p-8 border border-mint-200 shadow-soft flex flex-col justify-between">
-            <div>
-              <div className="w-12 h-12 rounded-2xl bg-mint-100 text-forest-800 flex items-center justify-center mb-4">
-                <MapPin className="w-6 h-6 text-forest-700" />
+          <Card3DTilt maxTilt={12} scale={1.03}>
+            <div className="bg-white rounded-3xl p-6 sm:p-8 border border-mint-200 shadow-soft flex flex-col justify-between h-full">
+              <div>
+                <div className="w-12 h-12 rounded-2xl bg-mint-100 text-forest-800 flex items-center justify-center mb-4">
+                  <MapPin className="w-6 h-6 text-forest-700" />
+                </div>
+                <h2 className="font-display font-bold text-lg text-forest-950 mb-1">
+                  Dallas Headquarters
+                </h2>
+                <p className="text-xs text-charcoal-muted mb-2">
+                  Serving Dallas (75287), Coppell, Plano, Carrollton & Addison.
+                </p>
+                <p className="font-display font-bold text-sm text-forest-900 leading-snug">
+                  {BUSINESS_INFO.address}
+                </p>
+                <span className="text-[11px] font-semibold text-charcoal-muted block mt-1">
+                  Plus code: {BUSINESS_INFO.plusCode}
+                </span>
               </div>
-              <h2 className="font-display font-bold text-lg text-forest-950 mb-1">
-                Dallas Headquarters
-              </h2>
-              <p className="text-xs text-charcoal-muted mb-2">
-                Serving Dallas (75287), Coppell, Plano, Carrollton & Addison.
-              </p>
-              <p className="font-display font-bold text-sm text-forest-900 leading-snug">
-                {BUSINESS_INFO.address}
-              </p>
-              <span className="text-[11px] font-semibold text-charcoal-muted block mt-1">
-                Plus code: {BUSINESS_INFO.plusCode}
-              </span>
+              <a
+                href={BUSINESS_INFO.googleMapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 inline-flex items-center justify-center w-full py-2.5 rounded-xl bg-mint-100 text-forest-950 font-bold text-xs hover:bg-mint-200 transition-colors border border-mint-300"
+              >
+                <Navigation className="w-3.5 h-3.5 mr-1.5 text-forest-800" />
+                <span>Get Directions on Google Maps</span>
+              </a>
             </div>
-            <a
-              href={BUSINESS_INFO.googleMapsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-6 inline-flex items-center justify-center w-full py-2.5 rounded-xl bg-mint-100 text-forest-950 font-bold text-xs hover:bg-mint-200 transition-colors border border-mint-300"
-            >
-              <Navigation className="w-3.5 h-3.5 mr-1.5 text-forest-800" />
-              <span>Get Directions on Google Maps</span>
-            </a>
-          </div>
+          </Card3DTilt>
 
           {/* Card 3: Business Hours */}
-          <div className="bg-white rounded-3xl p-6 sm:p-8 border border-mint-200 shadow-soft flex flex-col justify-between">
-            <div>
-              <div className="w-12 h-12 rounded-2xl bg-mint-100 text-forest-800 flex items-center justify-center mb-4">
-                <Clock className="w-6 h-6 text-forest-700" />
+          <Card3DTilt maxTilt={12} scale={1.03}>
+            <div className="bg-white rounded-3xl p-6 sm:p-8 border border-mint-200 shadow-soft flex flex-col justify-between h-full">
+              <div>
+                <div className="w-12 h-12 rounded-2xl bg-mint-100 text-forest-800 flex items-center justify-center mb-4">
+                  <Clock className="w-6 h-6 text-forest-700" />
+                </div>
+                <h2 className="font-display font-bold text-lg text-forest-950 mb-1">
+                  Operating Schedule
+                </h2>
+                <p className="text-xs text-charcoal-muted mb-3">
+                  Monday through Saturday service across North Texas.
+                </p>
+                <p className="font-display font-bold text-base text-forest-900">
+                  {BUSINESS_INFO.hours}
+                </p>
+                <span className="text-xs font-semibold text-emerald-700 bg-emerald-100 px-2.5 py-0.5 rounded-full inline-block mt-2">
+                  Opens 8:00 AM Mon – Sat
+                </span>
               </div>
-              <h2 className="font-display font-bold text-lg text-forest-950 mb-1">
-                Operating Schedule
-              </h2>
-              <p className="text-xs text-charcoal-muted mb-3">
-                Monday through Saturday service across North Texas.
-              </p>
-              <p className="font-display font-bold text-base text-forest-900">
-                {BUSINESS_INFO.hours}
-              </p>
-              <span className="text-xs font-semibold text-emerald-700 bg-emerald-100 px-2.5 py-0.5 rounded-full inline-block mt-2">
-                Opens 8:00 AM Mon – Sat
-              </span>
+              <Link
+                to="/quote"
+                className="mt-6 inline-flex items-center justify-center w-full py-2.5 rounded-xl bg-forest-800 text-white font-bold text-xs hover:bg-forest-900 transition-colors shadow-sm"
+              >
+                <span>Instant Estimate Page</span>
+              </Link>
             </div>
-            <Link
-              to="/quote"
-              className="mt-6 inline-flex items-center justify-center w-full py-2.5 rounded-xl bg-forest-800 text-white font-bold text-xs hover:bg-forest-900 transition-colors shadow-sm"
-            >
-              <span>Instant Estimate Page</span>
-            </Link>
-          </div>
+          </Card3DTilt>
 
         </div>
 

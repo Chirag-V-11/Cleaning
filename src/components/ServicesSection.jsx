@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Sparkles, ArrowRight, Check, Info, Calendar, Phone } from 'lucide-react';
 import { SERVICES, BUSINESS_INFO } from '../data/businessInfo';
 import ServiceDetailModal from './ServiceDetailModal';
+import Card3DTilt from './Card3DTilt';
 
 export default function ServicesSection({ onSelectServiceForQuote }) {
   const [selectedService, setSelectedService] = useState(null);
@@ -39,77 +40,81 @@ export default function ServicesSection({ onSelectServiceForQuote }) {
           </p>
         </div>
 
-        {/* 6 Core Service Cards Grid */}
+        {/* 6 Core Service Cards Grid with 3D Tilt */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {SERVICES.map((service) => (
-            <div
+            <Card3DTilt
               key={service.id}
-              className="bg-white rounded-3xl overflow-hidden border border-mint-200/90 shadow-soft hover:shadow-elevated hover:border-forest-400 transition-all duration-300 flex flex-col group"
+              maxTilt={10}
+              scale={1.02}
+              className="h-full"
             >
-              {/* Card Image with Badge & Price Tag */}
-              <div className="relative h-56 overflow-hidden">
-                <img
-                  src={service.image}
-                  alt={service.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-forest-950/70 via-transparent to-transparent"></div>
-                
-                {/* Category Badge */}
-                <span className="absolute top-4 left-4 bg-white/95 text-forest-900 font-extrabold text-[11px] uppercase tracking-wider px-3 py-1 rounded-full shadow-sm">
-                  {service.popularTag || service.badge}
-                </span>
-
-                {/* Starting Price Pill */}
-                <div className="absolute bottom-3 right-4 bg-forest-900/90 text-mint-100 px-3 py-1 rounded-xl text-xs font-bold backdrop-blur-sm border border-forest-700">
-                  From <span className="text-amber-400 text-sm font-extrabold">{service.startingPrice}</span>
-                </div>
-              </div>
-
-              {/* Card Body */}
-              <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between">
-                <div>
-                  <h3 className="font-display font-bold text-xl text-forest-950 mb-3 group-hover:text-forest-700 transition-colors">
-                    {service.title}
-                  </h3>
+              <div className="bg-white rounded-3xl overflow-hidden border border-mint-200/90 shadow-soft hover:shadow-2xl hover:border-forest-400 transition-all duration-300 flex flex-col h-full group">
+                {/* Card Image with Badge & Price Tag */}
+                <div className="relative h-56 overflow-hidden">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-forest-950/70 via-transparent to-transparent"></div>
                   
-                  <p className="text-sm text-charcoal-muted leading-relaxed mb-6">
-                    {service.shortDesc}
-                  </p>
+                  {/* Category Badge */}
+                  <span className="absolute top-4 left-4 bg-white/95 text-forest-900 font-extrabold text-[11px] uppercase tracking-wider px-3 py-1 rounded-full shadow-sm">
+                    {service.popularTag || service.badge}
+                  </span>
 
-                  {/* Feature Checkpoints */}
-                  <ul className="space-y-2 mb-6">
-                    {service.features.slice(0, 3).map((feat, fidx) => (
-                      <li key={fidx} className="flex items-start text-xs sm:text-sm text-charcoal-soft font-medium">
-                        <Check className="w-4 h-4 text-emerald-600 mr-2 flex-shrink-0 mt-0.5" />
-                        <span>{feat}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  {/* Starting Price Pill */}
+                  <div className="absolute bottom-3 right-4 bg-forest-900/90 text-mint-100 px-3 py-1 rounded-xl text-xs font-bold backdrop-blur-sm border border-forest-700">
+                    From <span className="text-amber-400 text-sm font-extrabold">{service.startingPrice}</span>
+                  </div>
                 </div>
 
-                {/* Card Action Buttons */}
-                <div className="pt-4 border-t border-mint-100 flex items-center justify-between gap-3">
-                  <button
-                    onClick={() => handleOpenModal(service)}
-                    className="inline-flex items-center text-xs font-bold text-forest-800 hover:text-forest-950 py-2 px-3 rounded-lg hover:bg-forest-50 transition-colors"
-                  >
-                    <Info className="w-3.5 h-3.5 mr-1 text-forest-600" />
-                    <span>Checklist & Info</span>
-                  </button>
+                {/* Card Body */}
+                <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between">
+                  <div>
+                    <h3 className="font-display font-bold text-xl text-forest-950 mb-3 group-hover:text-forest-700 transition-colors">
+                      {service.title}
+                    </h3>
+                    
+                    <p className="text-sm text-charcoal-muted leading-relaxed mb-6">
+                      {service.shortDesc}
+                    </p>
 
-                  <button
-                    onClick={() => handleSelectService(service.title)}
-                    className="inline-flex items-center text-xs font-bold text-white bg-forest-800 hover:bg-forest-900 py-2.5 px-4 rounded-xl shadow-sm hover:shadow transition-all group-hover:bg-forest-900"
-                  >
-                    <span>Request Quote</span>
-                    <ArrowRight className="w-3.5 h-3.5 ml-1.5 text-amber-300" />
-                  </button>
+                    {/* Feature Checkpoints */}
+                    <ul className="space-y-2 mb-6">
+                      {service.features.slice(0, 3).map((feat, fidx) => (
+                        <li key={fidx} className="flex items-start text-xs sm:text-sm text-charcoal-soft font-medium">
+                          <Check className="w-4 h-4 text-emerald-600 mr-2 flex-shrink-0 mt-0.5" />
+                          <span>{feat}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Card Action Buttons */}
+                  <div className="pt-4 border-t border-mint-100 flex items-center justify-between gap-3">
+                    <button
+                      onClick={() => handleOpenModal(service)}
+                      className="inline-flex items-center text-xs font-bold text-forest-800 hover:text-forest-950 py-2 px-3 rounded-lg hover:bg-forest-50 transition-colors"
+                    >
+                      <Info className="w-3.5 h-3.5 mr-1 text-forest-600" />
+                      <span>Checklist & Info</span>
+                    </button>
+
+                    <button
+                      onClick={() => handleSelectService(service.title)}
+                      className="inline-flex items-center text-xs font-bold text-white bg-forest-800 hover:bg-forest-900 py-2.5 px-4 rounded-xl shadow-sm hover:shadow transition-all group-hover:bg-forest-900"
+                    >
+                      <span>Request Quote</span>
+                      <ArrowRight className="w-3.5 h-3.5 ml-1.5 text-amber-300" />
+                    </button>
+                  </div>
+
                 </div>
-
               </div>
-            </div>
+            </Card3DTilt>
           ))}
         </div>
 

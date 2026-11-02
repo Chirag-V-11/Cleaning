@@ -55,3 +55,64 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #124C3A;
 }
+
+/* 3D Styles & Transforms */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.perspective-1500 {
+  perspective: 1500px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.translate-z-10 {
+  transform: translateZ(10px);
+}
+
+.translate-z-20 {
+  transform: translateZ(20px);
+}
+
+.translate-z-30 {
+  transform: translateZ(30px);
+}
+
+.translate-z-40 {
+  transform: translateZ(40px);
+}
+
+/* 3D Floating Animations */
+@keyframes float3D {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(1.5deg);
+  }
+}
+
+.animate-float-3d {
+  animation: float3D 6s ease-in-out infinite;
+}
+
+@keyframes pulseGlow3D {
+  0%, 100% {
+    box-shadow: 0 0 25px rgba(42, 143, 104, 0.2), 0 20px 40px rgba(18, 76, 58, 0.12);
+  }
+  50% {
+    box-shadow: 0 0 45px rgba(245, 158, 11, 0.3), 0 30px 60px rgba(18, 76, 58, 0.2);
+  }
+}
+
+.animate-glow-3d {
+  animation: pulseGlow3D 4s ease-in-out infinite;
+}

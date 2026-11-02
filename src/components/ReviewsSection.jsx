@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Star, ExternalLink, Sparkles, CheckCircle2, MapPin, Heart, ThumbsUp, MessageSquare } from 'lucide-react';
 import { GOOGLE_REVIEWS_ALL, REVIEW_TOPICS, BUSINESS_INFO } from '../data/businessInfo';
+import Card3DTilt from './Card3DTilt';
 
 export default function ReviewsSection() {
   const [activeTopic, setActiveTopic] = useState('All Reviews');
@@ -111,67 +112,71 @@ export default function ReviewsSection() {
           </div>
         </div>
 
-        {/* Reviews Grid */}
+        {/* Reviews Grid with 3D Tilt */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredReviews.map((review) => (
-            <div
+            <Card3DTilt
               key={review.id}
-              className="bg-white rounded-3xl p-6 sm:p-7 border border-mint-200 shadow-soft hover:shadow-elevated transition-all duration-300 flex flex-col justify-between"
+              maxTilt={10}
+              scale={1.02}
+              className="h-full"
             >
-              <div>
-                {/* Header: Author + Star Rating */}
-                <div className="flex items-start justify-between mb-3">
-                  <div>
-                    <h3 className="font-display font-bold text-base text-forest-950 flex items-center">
-                      {review.author}
-                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 ml-1.5" />
-                    </h3>
-                    <span className="text-[11px] text-charcoal-muted block">
-                      {review.badge}
+              <div className="bg-white rounded-3xl p-6 sm:p-7 border border-mint-200 shadow-soft hover:shadow-2xl transition-all duration-300 flex flex-col justify-between h-full">
+                <div>
+                  {/* Header: Author + Star Rating */}
+                  <div className="flex items-start justify-between mb-3">
+                    <div>
+                      <h3 className="font-display font-bold text-base text-forest-950 flex items-center">
+                        {review.author}
+                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 ml-1.5" />
+                      </h3>
+                      <span className="text-[11px] text-charcoal-muted block">
+                        {review.badge}
+                      </span>
+                    </div>
+
+                    <span className="text-[11px] text-charcoal-light font-medium bg-gray-50 px-2 py-0.5 rounded-md border border-gray-100">
+                      {review.date}
                     </span>
                   </div>
 
-                  <span className="text-[11px] text-charcoal-light font-medium bg-gray-50 px-2 py-0.5 rounded-md border border-gray-100">
-                    {review.date}
-                  </span>
+                  <div className="flex items-center space-x-1 text-amber-400 mb-3">
+                    {[...Array(review.rating)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
+                    ))}
+                  </div>
+
+                  {/* Review Text */}
+                  <p className="text-charcoal text-sm leading-relaxed mb-4 italic">
+                    "{review.text}"
+                  </p>
+
+                  {/* Owner Response Box if available */}
+                  {review.ownerResponse && (
+                    <div className="p-3 bg-mint-50/80 rounded-xl border border-mint-200 mb-4 text-xs">
+                      <span className="font-bold text-forest-900 block mb-0.5">
+                        Response from owner Rebecca:
+                      </span>
+                      <p className="text-charcoal-soft italic">
+                        "{review.ownerResponse}"
+                      </p>
+                    </div>
+                  )}
                 </div>
 
-                <div className="flex items-center space-x-1 text-amber-400 mb-3">
-                  {[...Array(review.rating)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
+                {/* Tag Cloud for this Review */}
+                <div className="pt-3 border-t border-gray-100 flex flex-wrap gap-1.5">
+                  {review.topic && review.topic.map((t, idx) => (
+                    <span
+                      key={idx}
+                      className="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-forest-50 text-forest-900 border border-mint-200"
+                    >
+                      #{t}
+                    </span>
                   ))}
                 </div>
-
-                {/* Review Text */}
-                <p className="text-charcoal text-sm leading-relaxed mb-4 italic">
-                  "{review.text}"
-                </p>
-
-                {/* Owner Response Box if available */}
-                {review.ownerResponse && (
-                  <div className="p-3 bg-mint-50/80 rounded-xl border border-mint-200 mb-4 text-xs">
-                    <span className="font-bold text-forest-900 block mb-0.5">
-                      Response from owner Rebecca:
-                    </span>
-                    <p className="text-charcoal-soft italic">
-                      "{review.ownerResponse}"
-                    </p>
-                  </div>
-                )}
               </div>
-
-              {/* Tag Cloud for this Review */}
-              <div className="pt-3 border-t border-gray-100 flex flex-wrap gap-1.5">
-                {review.topic && review.topic.map((t, idx) => (
-                  <span
-                    key={idx}
-                    className="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-forest-50 text-forest-900 border border-mint-200"
-                  >
-                    #{t}
-                  </span>
-                ))}
-              </div>
-            </div>
+            </Card3DTilt>
           ))}
         </div>
 

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Sparkles, Calculator, ArrowLeft, ShieldCheck, Heart, Clock, Star, Phone, CheckCircle2, HelpCircle } from 'lucide-react';
 import QuoteCalculatorSection from '../components/QuoteCalculatorSection';
 import { BUSINESS_INFO } from '../data/businessInfo';
+import Card3DTilt from '../components/Card3DTilt';
 
 export default function QuotePage({ preselectedService }) {
   // Scroll to top on page mount
@@ -78,41 +79,47 @@ export default function QuotePage({ preselectedService }) {
           </div>
 
           <div className="grid sm:grid-cols-3 gap-6">
-            <div className="bg-white rounded-2xl p-6 border border-mint-200 shadow-soft">
-              <div className="w-10 h-10 rounded-xl bg-forest-50 text-forest-800 flex items-center justify-center mb-4">
-                <CheckCircle2 className="w-6 h-6 text-emerald-600" />
+            <Card3DTilt maxTilt={12} scale={1.03}>
+              <div className="bg-white rounded-2xl p-6 border border-mint-200 shadow-soft h-full">
+                <div className="w-10 h-10 rounded-xl bg-forest-50 text-forest-800 flex items-center justify-center mb-4">
+                  <CheckCircle2 className="w-6 h-6 text-emerald-600" />
+                </div>
+                <h3 className="font-display font-bold text-base text-forest-950 mb-2">
+                  All Supplies & Equipment Included
+                </h3>
+                <p className="text-xs text-charcoal-muted leading-relaxed">
+                  We bring commercial vacuums, microfibers, safe eco-friendly detergents, and specialized deep bathtub cleaners. Never any surprise supply fees.
+                </p>
               </div>
-              <h3 className="font-display font-bold text-base text-forest-950 mb-2">
-                All Supplies & Equipment Included
-              </h3>
-              <p className="text-xs text-charcoal-muted leading-relaxed">
-                We bring commercial vacuums, microfibers, safe eco-friendly detergents, and specialized deep bathtub cleaners. Never any surprise supply fees.
-              </p>
-            </div>
+            </Card3DTilt>
 
-            <div className="bg-white rounded-2xl p-6 border border-mint-200 shadow-soft">
-              <div className="w-10 h-10 rounded-xl bg-forest-50 text-forest-800 flex items-center justify-center mb-4">
-                <Clock className="w-6 h-6 text-forest-700" />
+            <Card3DTilt maxTilt={12} scale={1.03}>
+              <div className="bg-white rounded-2xl p-6 border border-mint-200 shadow-soft h-full">
+                <div className="w-10 h-10 rounded-xl bg-forest-50 text-forest-800 flex items-center justify-center mb-4">
+                  <Clock className="w-6 h-6 text-forest-700" />
+                </div>
+                <h3 className="font-display font-bold text-base text-forest-950 mb-2">
+                  Transparent Formula
+                </h3>
+                <p className="text-xs text-charcoal-muted leading-relaxed">
+                  Our calculator uses real bedroom, bathroom, and square footage measurements so you see accurate numbers before submitting.
+                </p>
               </div>
-              <h3 className="font-display font-bold text-base text-forest-950 mb-2">
-                Transparent Formula
-              </h3>
-              <p className="text-xs text-charcoal-muted leading-relaxed">
-                Our calculator uses real bedroom, bathroom, and square footage measurements so you see accurate numbers before submitting.
-              </p>
-            </div>
+            </Card3DTilt>
 
-            <div className="bg-white rounded-2xl p-6 border border-mint-200 shadow-soft">
-              <div className="w-10 h-10 rounded-xl bg-forest-50 text-forest-800 flex items-center justify-center mb-4">
-                <Heart className="w-6 h-6 text-amber-500" />
+            <Card3DTilt maxTilt={12} scale={1.03}>
+              <div className="bg-white rounded-2xl p-6 border border-mint-200 shadow-soft h-full">
+                <div className="w-10 h-10 rounded-xl bg-forest-50 text-forest-800 flex items-center justify-center mb-4">
+                  <Heart className="w-6 h-6 text-amber-500" />
+                </div>
+                <h3 className="font-display font-bold text-base text-forest-950 mb-2">
+                  Direct Communication With Rebecca
+                </h3>
+                <p className="text-xs text-charcoal-muted leading-relaxed">
+                  No automated bot call centers. Rebecca reviews your request personally to confirm timing, emergency needs, and pet details.
+                </p>
               </div>
-              <h3 className="font-display font-bold text-base text-forest-950 mb-2">
-                Direct Communication With Rebecca
-              </h3>
-              <p className="text-xs text-charcoal-muted leading-relaxed">
-                No automated bot call centers. Rebecca reviews your request personally to confirm timing, emergency needs, and pet details.
-              </p>
-            </div>
+            </Card3DTilt>
           </div>
         </div>
 

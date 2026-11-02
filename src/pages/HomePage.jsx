@@ -3,6 +3,7 @@ import Hero from '../components/Hero';
 import StatsBanner from '../components/StatsBanner';
 import AboutSection from '../components/AboutSection';
 import ServicesSection from '../components/ServicesSection';
+import Interactive3DShowcase from '../components/Interactive3DShowcase';
 import BeforeAfterSection from '../components/BeforeAfterSection';
 import WhyChooseUs from '../components/WhyChooseUs';
 import GallerySection from '../components/GallerySection';
@@ -16,7 +17,7 @@ import { Link } from 'react-router-dom';
 export default function HomePage({ onSelectServiceForQuote }) {
   return (
     <>
-      {/* 1. Hero */}
+      {/* 1. Hero with Interactive 3D Canvas */}
       <Hero onSelectServiceForQuote={onSelectServiceForQuote} />
 
       {/* 2. Key Stats & Credentials Banner */}
@@ -28,10 +29,13 @@ export default function HomePage({ onSelectServiceForQuote }) {
       {/* 4. Our Services */}
       <ServicesSection onSelectServiceForQuote={onSelectServiceForQuote} />
 
-      {/* 5. Interactive Before & After Transformations */}
+      {/* 5. Interactive 3D Clean Space Explorer */}
+      <Interactive3DShowcase onSelectServiceForQuote={onSelectServiceForQuote} />
+
+      {/* 6. Interactive Before & After Transformations */}
       <BeforeAfterSection />
 
-      {/* 6. Why Choose Us */}
+      {/* 7. Why Choose Us */}
       <WhyChooseUs />
 
       {/* 7. Dedicated Instant Estimate Callout Banner (Directs to Separate Page) */}

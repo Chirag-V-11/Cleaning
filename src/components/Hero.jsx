@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Phone, Calendar, Star, Sparkles, CheckCircle2, Heart, Award, MapPin, Calculator, Clock, ShieldCheck } from 'lucide-react';
 import { BUSINESS_INFO } from '../data/businessInfo';
+import Hero3DScene from './Hero3DScene';
+import Card3DTilt from './Card3DTilt';
 
 export default function Hero({ onSelectServiceForQuote }) {
   const popularTags = [
@@ -97,63 +99,52 @@ export default function Hero({ onSelectServiceForQuote }) {
 
           </div>
 
-          {/* Right Column: Visual Showcase & Review Cards */}
-          <div className="lg:col-span-5 relative">
+          {/* Right Column: Interactive 3D Showroom & Floating Review Badges */}
+          <div className="lg:col-span-5 relative perspective-1000">
             <div className="relative mx-auto max-w-md lg:max-w-none">
               
-              {/* Main Cleaner Image */}
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white">
-                <img
-                  src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1000&q=80"
-                  alt="Rebecca and Orellana's Cleaning team detailing a Dallas home"
-                  className="w-full h-[440px] sm:h-[500px] object-cover hover:scale-105 transition-transform duration-700"
-                  loading="eager"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-forest-950/80 via-transparent to-transparent"></div>
-                
-                {/* Overlay Text Inside Image */}
-                <div className="absolute bottom-5 left-5 right-5 text-white">
-                  <p className="text-xs font-bold uppercase tracking-wider text-amber-300 flex items-center">
-                    <Sparkles className="w-3.5 h-3.5 mr-1" /> Orellana’s Cleaning LLC
-                  </p>
-                  <p className="font-display font-bold text-lg text-white">
-                    Women-Owned & Latino-Owned Local Care
-                  </p>
-                  <p className="text-xs text-mint-100 mt-1">
-                    3621 Frankford Rd, Dallas, TX 75287
-                  </p>
-                </div>
-              </div>
+              {/* Interactive 3D WebGL Canvas */}
+              <Hero3DScene />
 
-              {/* Floating Review Card 1: 2-Hour Emergency Response */}
-              <div className="absolute -top-5 -left-4 sm:-left-6 bg-white/95 backdrop-blur-md rounded-2xl p-4 shadow-elevated border border-mint-200 max-w-[270px]">
-                <div className="flex items-center space-x-1 text-amber-400 mb-1">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-3.5 h-3.5 fill-amber-400" />
-                  ))}
+              {/* Floating 3D Review Card 1: 2-Hour Emergency Response */}
+              <Card3DTilt
+                className="absolute -top-5 -left-4 sm:-left-6 z-20"
+                maxTilt={15}
+              >
+                <div className="bg-white/95 backdrop-blur-md rounded-2xl p-4 shadow-elevated border border-mint-200 max-w-[270px]">
+                  <div className="flex items-center space-x-1 text-amber-400 mb-1">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-3.5 h-3.5 fill-amber-400" />
+                    ))}
+                  </div>
+                  <p className="text-xs font-semibold text-forest-950 leading-snug">
+                    "Showed up within 2 hours to get an emergency deep clean in and did an amazing job!"
+                  </p>
+                  <div className="flex items-center justify-between mt-2 pt-1.5 border-t border-gray-100 text-[10px] text-charcoal-muted font-bold">
+                    <span>Stevie Elwood</span>
+                    <span className="text-emerald-700">★ 5.0 Google</span>
+                  </div>
                 </div>
-                <p className="text-xs font-semibold text-forest-950 leading-snug">
-                  "Showed up within 2 hours to get an emergency deep clean in and did an amazing job!"
-                </p>
-                <div className="flex items-center justify-between mt-2 pt-1.5 border-t border-gray-100 text-[10px] text-charcoal-muted font-bold">
-                  <span>Stevie Elwood</span>
-                  <span className="text-emerald-700">★ 5.0 Google</span>
-                </div>
-              </div>
+              </Card3DTilt>
 
-              {/* Floating Review Card 2: Value for Money & Reliability */}
-              <div className="absolute -bottom-6 -right-4 sm:-right-6 bg-forest-900 text-white rounded-2xl p-4 shadow-elevated border border-forest-700 max-w-[260px]">
-                <div className="flex items-center space-x-2 mb-1">
-                  <Award className="w-4 h-4 text-amber-400" />
-                  <span className="text-xs font-bold text-mint-200 uppercase tracking-wider">Highly Worth the Money</span>
+              {/* Floating 3D Review Card 2: Value for Money & Reliability */}
+              <Card3DTilt
+                className="absolute -bottom-6 -right-4 sm:-right-6 z-20"
+                maxTilt={15}
+              >
+                <div className="bg-forest-900 text-white rounded-2xl p-4 shadow-elevated border border-forest-700 max-w-[260px]">
+                  <div className="flex items-center space-x-2 mb-1">
+                    <Award className="w-4 h-4 text-amber-400" />
+                    <span className="text-xs font-bold text-mint-200 uppercase tracking-wider">Highly Worth the Money</span>
+                  </div>
+                  <p className="text-xs text-white/95 italic leading-snug">
+                    "Great communication, great prices, prompt and professional. We’ll be using again!"
+                  </p>
+                  <div className="text-[10px] text-mint-300 font-semibold mt-1">
+                    — Kat B Suarez (Verified Client)
+                  </div>
                 </div>
-                <p className="text-xs text-white/95 italic leading-snug">
-                  "Great communication, great prices, prompt and professional. We’ll be using again!"
-                </p>
-                <div className="text-[10px] text-mint-300 font-semibold mt-1">
-                  — Kat B Suarez (Verified Client)
-                </div>
-              </div>
+              </Card3DTilt>
 
             </div>
           </div>

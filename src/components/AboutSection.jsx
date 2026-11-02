@@ -1,6 +1,7 @@
 import React from 'react';
 import { ShieldCheck, Sparkles, HeartHandshake, CheckCircle2, MapPin, Award, Phone, Heart, Clock } from 'lucide-react';
 import { BUSINESS_INFO } from '../data/businessInfo';
+import Card3DTilt from './Card3DTilt';
 
 export default function AboutSection() {
   const pillars = [
@@ -47,9 +48,13 @@ export default function AboutSection() {
         {/* Content Grid: Visual + Story */}
         <div className="grid lg:grid-cols-12 gap-12 items-center">
           
-          {/* Left: Images Composition */}
-          <div className="lg:col-span-5 relative">
-            <div className="relative">
+          {/* Left: 3D Images Composition */}
+          <div className="lg:col-span-5 relative perspective-1000">
+            <Card3DTilt
+              maxTilt={8}
+              scale={1.02}
+              className="relative"
+            >
               {/* Main Image */}
               <div className="rounded-3xl overflow-hidden shadow-elevated border-4 border-surface-subtle">
                 <img
@@ -60,7 +65,7 @@ export default function AboutSection() {
               </div>
 
               {/* Inset Deep Bath Image */}
-              <div className="hidden sm:block absolute -bottom-8 -right-8 w-56 h-56 rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
+              <div className="hidden sm:block absolute -bottom-8 -right-8 w-56 h-56 rounded-2xl overflow-hidden shadow-2xl border-4 border-white translate-z-20">
                 <img
                   src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=500&q=80"
                   alt="Spotless deep bathtub and tile restoration"
@@ -69,7 +74,7 @@ export default function AboutSection() {
               </div>
 
               {/* Trust Badge */}
-              <div className="absolute top-4 left-4 bg-forest-900/95 text-white p-4 rounded-2xl shadow-xl backdrop-blur-md max-w-[210px] border border-forest-700">
+              <div className="absolute top-4 left-4 bg-forest-900/95 text-white p-4 rounded-2xl shadow-xl backdrop-blur-md max-w-[210px] border border-forest-700 translate-z-30">
                 <div className="flex items-center space-x-1.5 text-amber-400 mb-1">
                   <MapPin className="w-4 h-4 text-mint-300" />
                   <span className="text-xs font-bold uppercase tracking-wider text-mint-200">Dallas Headquarters</span>
@@ -78,29 +83,35 @@ export default function AboutSection() {
                   3621 Frankford Rd, Dallas, TX 75287
                 </p>
               </div>
-            </div>
+            </Card3DTilt>
           </div>
 
-          {/* Right: Pillars & Values */}
+          {/* Right: Pillars & Values with 3D Tilt */}
           <div className="lg:col-span-7">
             <div className="grid sm:grid-cols-2 gap-6">
               {pillars.map((pillar, idx) => {
                 const Icon = pillar.icon;
                 return (
-                  <div
+                  <Card3DTilt
                     key={idx}
-                    className="p-6 rounded-2xl bg-surface-light border border-mint-200 hover:border-forest-400 hover:shadow-soft transition-all duration-300 group"
+                    maxTilt={12}
+                    scale={1.02}
+                    className="h-full"
                   >
-                    <div className="w-12 h-12 rounded-xl bg-mint-100 text-forest-800 flex items-center justify-center mb-4 group-hover:bg-forest-800 group-hover:text-amber-400 transition-colors">
-                      <Icon className="w-6 h-6" />
+                    <div className="p-6 rounded-2xl bg-surface-light border border-mint-200 hover:border-forest-400 hover:shadow-xl transition-all duration-300 group h-full flex flex-col justify-between">
+                      <div>
+                        <div className="w-12 h-12 rounded-xl bg-mint-100 text-forest-800 flex items-center justify-center mb-4 group-hover:bg-forest-800 group-hover:text-amber-400 transition-colors shadow-sm">
+                          <Icon className="w-6 h-6" />
+                        </div>
+                        <h3 className="font-display font-bold text-lg text-forest-950 mb-2">
+                          {pillar.title}
+                        </h3>
+                        <p className="text-sm text-charcoal-muted leading-relaxed">
+                          {pillar.desc}
+                        </p>
+                      </div>
                     </div>
-                    <h3 className="font-display font-bold text-lg text-forest-950 mb-2">
-                      {pillar.title}
-                    </h3>
-                    <p className="text-sm text-charcoal-muted leading-relaxed">
-                      {pillar.desc}
-                    </p>
-                  </div>
+                  </Card3DTilt>
                 );
               })}
             </div>
