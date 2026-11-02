@@ -1,28 +1,28 @@
 import React from 'react';
-import { ShieldCheck, Sparkles, HeartHandshake, CheckCircle2, MapPin, Award, Phone, Heart } from 'lucide-react';
+import { ShieldCheck, Sparkles, HeartHandshake, CheckCircle2, MapPin, Award, Phone, Heart, Clock } from 'lucide-react';
 import { BUSINESS_INFO } from '../data/businessInfo';
 
 export default function AboutSection() {
   const pillars = [
     {
-      title: "Family Care & Serious Hustle",
-      desc: "As long-time client Liz Elliott shared: 'Truly a family business and boy do they hustle.' Sheila, Lincoln, and our team work with infectious energy, care, and thoroughness.",
+      title: "2-Hour Emergency Response",
+      desc: "When landlords leave a rental dirty or an unexpected event happens, Rebecca can arrive within 2 hours. As Holly Bittick shared: 'Rebecca has saved the day once again!'",
+      icon: Clock
+    },
+    {
+      title: "Women & Latino-Owned",
+      desc: "Founded by Rebecca Orellana, Orellana’s Cleaning LLC is a proud local business bringing dependable work ethic, honest communication, and warm, respectful service to every client.",
       icon: Heart
     },
     {
-      title: "The Baseboard & Blind Difference",
-      desc: "We don't just dust open surfaces. We hand-wipe baseboards, detail blinds slat-by-slat, tidy everyday clutter, and clean behind the spots other companies skip.",
+      title: "Deep Bathtub & Detail Care",
+      desc: "As Trayce Cavanaugh noted: 'I’m disabled and can’t clean my deep bathtub... Liz and Michelle were very professional and did everything I asked. Very thorough!'",
       icon: Sparkles
     },
     {
-      title: "Lincoln's Hardwood Floor Polish",
-      desc: "Client Dana Chandler raves: 'Lincoln can make my wood floors shine like no one ever has!!' Our specialized floor care brings natural warmth and shine back to your home.",
+      title: "Reasonable & Honest Value",
+      desc: "Clients Kat B Suarez, Brenda Layton, and Chase consistently praise our fair pricing: 'Great communication, great prices, prompt and professional. Highly worth the money.'",
       icon: Award
-    },
-    {
-      title: "10+ Years of Unbroken Trust",
-      desc: "Our clients in Dallas and Coppell stay with us for 5, 8, and 10+ years. You get honest, reliable, background-checked family members you can comfortably leave keys with.",
-      icon: ShieldCheck
     }
   ];
 
@@ -34,13 +34,13 @@ export default function AboutSection() {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center space-x-2 bg-mint-100 text-forest-900 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-4 border border-mint-200">
             <Sparkles className="w-3.5 h-3.5 text-forest-700" />
-            <span>Meet Sheila & Lincoln</span>
+            <span>Meet Rebecca & The Orellana Team</span>
           </div>
           <h2 className="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-forest-950 tracking-tight leading-tight mb-6">
-            About Brazilian Cleaning Services
+            About Orellana’s Cleaning LLC
           </h2>
           <p className="text-base sm:text-lg text-charcoal-muted leading-relaxed">
-            Located at 18065 Appleridge Dr #2622, Dallas, TX 75287, we are an independent family cleaning business dedicated to making Texas homes glow. For over a decade, we have built lifelong relationships with homeowners in Dallas, Coppell, Plano, and North Texas.
+            Located at 3621 Frankford Rd, Dallas, TX 75287, Orellana’s Cleaning LLC is an independent, women-owned and Latino-owned cleaning company. Led by Rebecca alongside trusted team members like Liz and Michelle, we deliver emergency rescues, deep scrubs, and dependable housekeeping across North Texas.
           </p>
         </div>
 
@@ -54,16 +54,16 @@ export default function AboutSection() {
               <div className="rounded-3xl overflow-hidden shadow-elevated border-4 border-surface-subtle">
                 <img
                   src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=800&q=80"
-                  alt="Brazilian Cleaning Services detailing a clean Dallas kitchen"
+                  alt="Orellana's Cleaning LLC team detailing a clean Dallas kitchen"
                   className="w-full h-[410px] object-cover"
                 />
               </div>
 
-              {/* Inset Wood Floor Image */}
+              {/* Inset Deep Bath Image */}
               <div className="hidden sm:block absolute -bottom-8 -right-8 w-56 h-56 rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
                 <img
-                  src="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?auto=format&fit=crop&w=500&q=80"
-                  alt="Lincoln's shining hardwood floor restoration"
+                  src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=500&q=80"
+                  alt="Spotless deep bathtub and tile restoration"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -72,10 +72,10 @@ export default function AboutSection() {
               <div className="absolute top-4 left-4 bg-forest-900/95 text-white p-4 rounded-2xl shadow-xl backdrop-blur-md max-w-[210px] border border-forest-700">
                 <div className="flex items-center space-x-1.5 text-amber-400 mb-1">
                   <MapPin className="w-4 h-4 text-mint-300" />
-                  <span className="text-xs font-bold uppercase tracking-wider text-mint-200">Dallas & Coppell</span>
+                  <span className="text-xs font-bold uppercase tracking-wider text-mint-200">Dallas Headquarters</span>
                 </div>
                 <p className="text-xs text-white/90 font-medium">
-                  18065 Appleridge Dr #2622, Dallas, TX 75287
+                  3621 Frankford Rd, Dallas, TX 75287
                 </p>
               </div>
             </div>
@@ -109,13 +109,13 @@ export default function AboutSection() {
             <div className="mt-8 p-5 rounded-2xl bg-forest-50 border border-mint-200">
               <div className="flex items-center justify-between flex-wrap gap-2 mb-3">
                 <span className="text-xs font-bold uppercase tracking-wider text-forest-900 flex items-center">
-                  <MapPin className="w-4 h-4 mr-1.5 text-forest-700" /> Service Coverage Across North Texas:
+                  <MapPin className="w-4 h-4 mr-1.5 text-forest-700" /> Dallas Metro Service Areas:
                 </span>
                 <a
                   href={`tel:${BUSINESS_INFO.phoneRaw}`}
                   className="text-xs font-bold text-forest-800 hover:text-forest-950 underline flex items-center"
                 >
-                  <Phone className="w-3.5 h-3.5 mr-1" /> Call Sheila: {BUSINESS_INFO.phoneDisplay}
+                  <Phone className="w-3.5 h-3.5 mr-1" /> Call Rebecca: {BUSINESS_INFO.phoneDisplay}
                 </a>
               </div>
               <div className="flex flex-wrap gap-2">

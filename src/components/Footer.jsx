@@ -21,16 +21,16 @@ export default function Footer() {
               </div>
               <div>
                 <span className="font-display font-extrabold text-xl tracking-tight text-white block">
-                  Brazilian <span className="text-mint-300 font-semibold">Cleaning</span>
+                  Orellana’s <span className="text-mint-300 font-semibold">Cleaning LLC</span>
                 </span>
                 <span className="text-[10px] uppercase tracking-widest font-semibold text-amber-400">
-                  Services • Dallas & Coppell TX
+                  Services • Dallas TX 75287
                 </span>
               </div>
             </div>
 
             <p className="text-sm text-mint-100/80 leading-relaxed max-w-sm">
-              Trusted for over 10 years by Dallas & Coppell families. Founded by Sheila & Lincoln, bringing spotless detail, gleaming hardwood floors, and dependable family care.
+              Dallas's trusted 4.8-star cleaning service founded by Rebecca. Specializing in emergency 2-hour cleans, rental move-in rescues, and meticulous residential & commercial care.
             </p>
 
             <div className="pt-2">
@@ -45,7 +45,7 @@ export default function Footer() {
                     <Star key={i} className="w-3.5 h-3.5 fill-amber-400" />
                   ))}
                 </div>
-                <span className="text-xs font-bold text-white">5.0 Google Rating</span>
+                <span className="text-xs font-bold text-white">4.8 Google Rating</span>
                 <span className="text-xs text-amber-300">({BUSINESS_INFO.reviewCount} Reviews)</span>
                 <ExternalLink className="w-3 h-3 text-mint-300 ml-1" />
               </a>
@@ -59,12 +59,12 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2 text-sm text-mint-100/90 font-medium">
               <li><a href="#home" className="hover:text-white transition-colors">Home</a></li>
-              <li><a href="#about" className="hover:text-white transition-colors">Meet Sheila & Team</a></li>
+              <li><a href="#about" className="hover:text-white transition-colors">Meet Rebecca & Team</a></li>
               <li><a href="#services" className="hover:text-white transition-colors">Services</a></li>
-              <li><a href="#transformations" className="hover:text-white transition-colors">Wood & Deep Clean</a></li>
-              <li><a href="#reviews" className="hover:text-white transition-colors">16 Google Reviews</a></li>
+              <li><a href="#transformations" className="hover:text-white transition-colors">Transformations</a></li>
+              <li><a href="#reviews" className="hover:text-white transition-colors">12 Google Reviews</a></li>
               <li><Link to="/quote" className="text-amber-300 font-bold hover:text-white transition-colors flex items-center"><Calculator className="w-3.5 h-3.5 mr-1" />Instant Estimate Page</Link></li>
-              <li><Link to="/contact" className="hover:text-white transition-colors">Contact Sheila</Link></li>
+              <li><Link to="/contact" className="hover:text-white transition-colors">Contact Rebecca</Link></li>
             </ul>
           </div>
 
@@ -125,27 +125,27 @@ export default function Footer() {
         {/* Local SEO Keywords */}
         <div className="py-6 border-b border-forest-800/80">
           <p className="text-[11px] font-bold uppercase tracking-wider text-amber-400 mb-2">
-            Dallas & Coppell Local Search Keywords:
+            Dallas & Carrollton Local Search Keywords:
           </p>
           <div className="flex flex-wrap gap-2 text-[11px] text-mint-100/70">
-            <span className="bg-forest-900 px-2 py-0.5 rounded-md border border-forest-800">Brazilian Cleaning Services Dallas</span>
-            <span className="bg-forest-900 px-2 py-0.5 rounded-md border border-forest-800">House Cleaning Coppell TX</span>
-            <span className="bg-forest-900 px-2 py-0.5 rounded-md border border-forest-800">Wood Floor Polishing Dallas</span>
+            <span className="bg-forest-900 px-2 py-0.5 rounded-md border border-forest-800">Orellana’s Cleaning LLC</span>
+            <span className="bg-forest-900 px-2 py-0.5 rounded-md border border-forest-800">3621 Frankford Rd Cleaning</span>
+            <span className="bg-forest-900 px-2 py-0.5 rounded-md border border-forest-800">Emergency Deep Cleaning Dallas</span>
             <span className="bg-forest-900 px-2 py-0.5 rounded-md border border-forest-800">Deep Cleaning Dallas 75287</span>
-            <span className="bg-forest-900 px-2 py-0.5 rounded-md border border-forest-800">Sheila Cleaning Dallas</span>
-            <span className="bg-forest-900 px-2 py-0.5 rounded-md border border-forest-800">18065 Appleridge Dr Cleaning</span>
-            <span className="bg-forest-900 px-2 py-0.5 rounded-md border border-forest-800">Plano TX House Cleaning</span>
-            <span className="bg-forest-900 px-2 py-0.5 rounded-md border border-forest-800">LGBTQ+ Friendly Cleaning Dallas</span>
+            <span className="bg-forest-900 px-2 py-0.5 rounded-md border border-forest-800">Rebecca Cleaning Dallas</span>
+            <span className="bg-forest-900 px-2 py-0.5 rounded-md border border-forest-800">Move-In Rental Cleaning Dallas</span>
+            <span className="bg-forest-900 px-2 py-0.5 rounded-md border border-forest-800">Women-Owned Cleaning Dallas</span>
+            <span className="bg-forest-900 px-2 py-0.5 rounded-md border border-forest-800">Latino-Owned Cleaning Dallas</span>
           </div>
         </div>
 
         {/* Bottom Copyright */}
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-mint-200/60 gap-4">
           <p>
-            © {currentYear} Brazilian Cleaning Services. All rights reserved. 18065 Appleridge Dr #2622, Dallas, TX 75287.
+            © {currentYear} Orellana’s Cleaning LLC. All rights reserved. 3621 Frankford Rd, Dallas, TX 75287.
           </p>
           <p className="flex items-center text-amber-300/80">
-            Proudly family-owned and serving Dallas & Coppell for over a decade.
+            Proudly Women-Owned, Latino-Owned & LGBTQ+ Friendly in Dallas, Texas.
           </p>
         </div>
 

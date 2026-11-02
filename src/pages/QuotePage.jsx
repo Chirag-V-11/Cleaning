@@ -48,7 +48,7 @@ export default function QuotePage({ preselectedService }) {
           <div className="flex flex-wrap items-center justify-center gap-4 mt-8 pt-6 border-t border-mint-200">
             <div className="flex items-center space-x-2 text-xs sm:text-sm font-bold text-forest-950 bg-white px-4 py-2 rounded-2xl border border-mint-200 shadow-2xs">
               <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
-              <span>5.0 Google Rating (16 Reviews)</span>
+              <span>4.8 Google Rating (12 Reviews)</span>
             </div>
             <div className="flex items-center space-x-2 text-xs sm:text-sm font-bold text-forest-950 bg-white px-4 py-2 rounded-2xl border border-mint-200 shadow-2xs">
               <ShieldCheck className="w-4 h-4 text-emerald-600" />
@@ -56,7 +56,7 @@ export default function QuotePage({ preselectedService }) {
             </div>
             <div className="flex items-center space-x-2 text-xs sm:text-sm font-bold text-forest-950 bg-white px-4 py-2 rounded-2xl border border-mint-200 shadow-2xs">
               <Heart className="w-4 h-4 text-amber-500" />
-              <span>Family Owned by Sheila & Lincoln</span>
+              <span>Women & Latino Owned (Rebecca)</span>
             </div>
           </div>
         </div>
@@ -83,10 +83,10 @@ export default function QuotePage({ preselectedService }) {
                 <CheckCircle2 className="w-6 h-6 text-emerald-600" />
               </div>
               <h3 className="font-display font-bold text-base text-forest-950 mb-2">
-                All Supplies & Buffers Included
+                All Supplies & Equipment Included
               </h3>
               <p className="text-xs text-charcoal-muted leading-relaxed">
-                We bring hospital-grade vacuums, microfibers, eco-friendly detergents, and Lincoln's wood buffing pads. Never any fuel surcharges or supply fees.
+                We bring commercial vacuums, microfibers, safe eco-friendly detergents, and specialized deep bathtub cleaners. Never any surprise supply fees.
               </p>
             </div>
 
@@ -107,10 +107,10 @@ export default function QuotePage({ preselectedService }) {
                 <Heart className="w-6 h-6 text-amber-500" />
               </div>
               <h3 className="font-display font-bold text-base text-forest-950 mb-2">
-                Direct Communication With Sheila
+                Direct Communication With Rebecca
               </h3>
               <p className="text-xs text-charcoal-muted leading-relaxed">
-                No automated bot call centers. Sheila reviews your submission personally to confirm timing, pet preferences, and special focus requests.
+                No automated bot call centers. Rebecca reviews your request personally to confirm timing, emergency needs, and pet details.
               </p>
             </div>
           </div>
@@ -124,10 +124,10 @@ export default function QuotePage({ preselectedService }) {
             </div>
             <div>
               <h3 className="font-display font-bold text-xl text-white">
-                Have a Unique House or Urgent Timeline?
+                Need an Emergency Clean or Move-In Rescue?
               </h3>
               <p className="text-xs sm:text-sm text-mint-100">
-                Call or text Sheila directly at <strong className="text-amber-300">{BUSINESS_INFO.phoneDisplay}</strong> for custom walkthrough estimates.
+                Call or text Rebecca directly at <strong className="text-amber-300">{BUSINESS_INFO.phoneDisplay}</strong> for 2-hour dispatch.
               </p>
             </div>
           </div>
@@ -136,7 +136,7 @@ export default function QuotePage({ preselectedService }) {
             href={`tel:${BUSINESS_INFO.phoneRaw}`}
             className="w-full md:w-auto px-8 py-3.5 rounded-xl bg-amber-400 text-forest-950 font-extrabold text-sm hover:bg-amber-300 transition-colors shadow-md text-center"
           >
-            Call Sheila: {BUSINESS_INFO.phoneDisplay}
+            Call Rebecca: {BUSINESS_INFO.phoneDisplay}
           </a>
         </div>
 

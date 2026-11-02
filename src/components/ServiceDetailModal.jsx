@@ -126,7 +126,7 @@ export default function ServiceDetailModal({ service, isOpen, onClose, onSelectS
               className="w-full sm:w-auto py-3.5 px-5 rounded-xl bg-mint-100 text-forest-900 font-bold text-sm hover:bg-mint-200 transition-colors flex items-center justify-center border border-mint-300"
             >
               <Phone className="w-4 h-4 mr-2 text-forest-800" />
-              <span>Call Sheila ({BUSINESS_INFO.phoneDisplay})</span>
+              <span>Call Rebecca ({BUSINESS_INFO.phoneDisplay})</span>
             </a>
           </div>
 

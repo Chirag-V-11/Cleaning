@@ -35,7 +35,7 @@ export default function ServicesSection({ onSelectServiceForQuote }) {
             Our Cleaning Specialties
           </h2>
           <p className="text-base sm:text-lg text-charcoal-muted leading-relaxed">
-            From routine house cleaning and hand-washed baseboards to Lincoln’s signature hardwood floor polish and spotless move-outs, we treat every home with meticulous care.
+            From emergency 2-hour callouts and deep bathtub detailing to rental move-in rescues and routine housekeeping, Rebecca and her team treat every home with meticulous care.
           </p>
         </div>
 
@@ -124,7 +124,7 @@ export default function ServicesSection({ onSelectServiceForQuote }) {
                 Need a Custom Cleaning Schedule or Move-Out Quote?
               </h4>
               <p className="text-xs sm:text-sm text-mint-100">
-                Call Sheila directly or request an estimate online for rapid turnaround.
+                Call Rebecca directly or request an estimate online for rapid turnaround.
               </p>
             </div>
           </div>

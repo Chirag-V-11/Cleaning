@@ -23,7 +23,7 @@ export default function WhyChooseUs() {
             <span>Why Dallas Chooses Us</span>
           </div>
           <h2 className="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-forest-950 tracking-tight leading-tight mb-6">
-            The Brazilian Cleaning Standard
+            The Orellana Cleaning Standard
           </h2>
           <p className="text-base sm:text-lg text-charcoal-muted leading-relaxed">
             We hold ourselves to elevated standards so you return home to immaculate spaces every single time. Here is why homeowners and businesses across Dallas trust us.

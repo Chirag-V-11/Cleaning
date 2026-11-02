@@ -1,32 +1,32 @@
 import React from 'react';
-import { Star, Clock, ShieldCheck, Heart, MapPin, Sparkles } from 'lucide-react';
+import { Star, Clock, ShieldCheck, Heart, MapPin, Sparkles, Award } from 'lucide-react';
 import { BUSINESS_INFO } from '../data/businessInfo';
 
 export default function StatsBanner() {
   const stats = [
     {
       icon: Star,
-      val: "5.0 ★ (16 Reviews)",
-      label: "100% Five-Star Rating",
-      sub: "All 16 Google Reviews Are 5 Stars"
+      val: "4.8 ★ (12 Reviews)",
+      label: "Authentic Google Rating",
+      sub: "Highly Worth the Money"
+    },
+    {
+      icon: Clock,
+      val: "2-Hour Response",
+      label: "Emergency Deep Clean",
+      sub: "Rapid On-Site Dispatch"
     },
     {
       icon: Heart,
-      val: "10+ Years",
-      label: "Trusted Family Team",
-      sub: "Sheila, Lincoln & Dedicated Crew"
-    },
-    {
-      icon: Sparkles,
-      val: "Wood & Details",
-      label: "Baseboards, Blinds & Shine",
-      sub: "Lincoln's Signature Floor Polish"
+      val: "Women & Latino",
+      label: "Proudly Local Owned",
+      sub: "Led by Rebecca & Team"
     },
     {
       icon: MapPin,
-      val: "Dallas & Coppell",
-      label: "18065 Appleridge Dr",
-      sub: "LGBTQ+ Friendly Local Business"
+      val: "Dallas 75287",
+      label: "3621 Frankford Rd",
+      sub: "LGBTQ+ Friendly Service"
     }
   ];
 

@@ -41,10 +41,10 @@ export default function BeforeAfterSection() {
             <span>Interactive Transformations</span>
           </div>
           <h2 className="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-forest-950 tracking-tight leading-tight mb-4">
-            See the Brazilian Cleaning Glow
+            See the Orellana Cleaning Transformation
           </h2>
           <p className="text-base sm:text-lg text-charcoal-muted leading-relaxed">
-            Drag the slider to compare untouched surfaces with our finished work—including Lincoln's famous hardwood floor polish, detailed baseboards, and sparkling kitchens.
+            Drag the slider to compare untouched surfaces with our finished work—including rental move-in rescues, deep bathtub descaling, and spotless kitchens.
           </p>
 
           {/* Transformation Selectors */}
@@ -82,7 +82,7 @@ export default function BeforeAfterSection() {
             {/* After Image (Background) */}
             <img
               src={currentItem.after}
-              alt="After Brazilian Cleaning"
+              alt="After Orellana's Cleaning"
               className="absolute inset-0 w-full h-full object-cover pointer-events-none"
             />
             

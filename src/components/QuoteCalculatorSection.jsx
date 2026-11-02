@@ -32,9 +32,9 @@ export default function QuoteCalculatorSection({ preselectedService }) {
   }, [preselectedService]);
 
   const addOnOptions = [
-    { id: 'wood-polish', label: "Lincoln's Hardwood Floor Polish ($45)", price: 45 },
+    { id: 'tub-detail', label: 'Deep Bathtub & Tile Descaling ($45)', price: 45 },
     { id: 'baseboards', label: 'Hand-Washing Baseboards ($40)', price: 40 },
-    { id: 'blinds', label: 'Detailing Blinds Slat-by-Slat ($35)', price: 35 },
+    { id: 'emergency-dispatch', label: 'Emergency 2-Hour Dispatch Guarantee ($45)', price: 45 },
     { id: 'inside-oven', label: 'Inside Oven Degrease ($40)', price: 40 },
     { id: 'inside-fridge', label: 'Inside Refrigerator Sanitize ($35)', price: 35 }
   ];
@@ -42,11 +42,12 @@ export default function QuoteCalculatorSection({ preselectedService }) {
   const calculateEstimate = () => {
     let base = 125;
     
-    if (formData.serviceRequired === 'Deep Detail Cleaning') base = 195;
-    else if (formData.serviceRequired === 'Hardwood Floor Polishing') base = 140;
-    else if (formData.serviceRequired === 'Move-In / Move-Out Cleaning') base = 220;
-    else if (formData.serviceRequired === 'Office & Small Business Cleaning') base = 160;
-    else if (formData.serviceRequired === 'Recurring Family Housekeeping') base = 115;
+    if (formData.serviceRequired === 'Emergency Deep Cleaning') base = 210;
+    else if (formData.serviceRequired === 'Deep Clean & Tub Detailing' || formData.serviceRequired === 'Deep Detail Cleaning') base = 195;
+    else if (formData.serviceRequired === 'Move-In / Move-Out Rental Rescue' || formData.serviceRequired === 'Move-In / Move-Out Cleaning') base = 220;
+    else if (formData.serviceRequired === 'Commercial & Office Cleaning' || formData.serviceRequired === 'Office & Small Business Cleaning') base = 160;
+    else if (formData.serviceRequired === 'Post-Baby Family Cleaning') base = 135;
+    else if (formData.serviceRequired === 'Standard House Cleaning') base = 125;
 
     const beds = parseInt(formData.bedrooms, 10) || 1;
     const baths = parseFloat(formData.bathrooms, 10) || 1;
@@ -100,7 +101,7 @@ export default function QuoteCalculatorSection({ preselectedService }) {
 
     const phoneRegex = /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/;
     if (!formData.phoneNumber.trim()) {
-      newErrors.phoneNumber = 'Phone number is required for Sheila to confirm';
+      newErrors.phoneNumber = 'Phone number is required for Rebecca to confirm';
     } else if (!phoneRegex.test(formData.phoneNumber.replace(/\s+/g, ''))) {
       newErrors.phoneNumber = 'Please enter a valid 10-digit phone number (e.g. 214-450-6302)';
     }
@@ -128,7 +129,7 @@ export default function QuoteCalculatorSection({ preselectedService }) {
     setIsSubmitting(true);
 
     const calculatedTotal = calculateEstimate();
-    const referenceId = `BRAZILIAN-${Math.floor(100000 + Math.random() * 900000)}`;
+    const referenceId = `ORELLANA-${Math.floor(100000 + Math.random() * 900000)}`;
 
     const submissionPayload = {
       referenceId,
@@ -138,9 +139,9 @@ export default function QuoteCalculatorSection({ preselectedService }) {
     };
 
     try {
-      const existing = JSON.parse(localStorage.getItem('brazilian_cleaning_quotes') || '[]');
+      const existing = JSON.parse(localStorage.getItem('orellana_cleaning_quotes') || '[]');
       existing.unshift(submissionPayload);
-      localStorage.setItem('brazilian_cleaning_quotes', JSON.stringify(existing));
+      localStorage.setItem('orellana_cleaning_quotes', JSON.stringify(existing));
     } catch (err) {
       console.warn('Storage error', err);
     }
@@ -194,7 +195,7 @@ export default function QuoteCalculatorSection({ preselectedService }) {
             Request an Instant Cleaning Estimate
           </h2>
           <p className="text-base sm:text-lg text-charcoal-muted leading-relaxed">
-            Get an instant estimate for your home in Dallas, Coppell, Plano, or Carrollton. Sheila or Lincoln will follow up directly to lock in your date.
+            Get an instant estimate for your home in Dallas (75287), Carrollton, Addison, or Plano. Rebecca or her team will follow up directly to lock in your date.
           </p>
         </div>
 
@@ -214,7 +215,7 @@ export default function QuoteCalculatorSection({ preselectedService }) {
             </h3>
 
             <p className="text-sm sm:text-base text-charcoal-muted mb-6">
-              Sheila has received your request for <strong className="text-forest-900">{submissionDetails.serviceRequired}</strong>. Reference Code: <strong className="text-forest-800 font-mono">{submissionDetails.referenceId}</strong>.
+              Rebecca has received your request for <strong className="text-forest-900">{submissionDetails.serviceRequired}</strong>. Reference Code: <strong className="text-forest-800 font-mono">{submissionDetails.referenceId}</strong>.
             </p>
 
             <div className="bg-white rounded-2xl p-6 border border-mint-200 text-left mb-8 space-y-3">
@@ -232,7 +233,7 @@ export default function QuoteCalculatorSection({ preselectedService }) {
               </div>
               <div className="flex justify-between text-sm py-1">
                 <span className="text-charcoal-muted">Service Location:</span>
-                <span className="font-bold text-forest-950">Dallas / Coppell Area</span>
+                <span className="font-bold text-forest-950">Dallas / Frankford Rd Area</span>
               </div>
             </div>
 
@@ -242,7 +243,7 @@ export default function QuoteCalculatorSection({ preselectedService }) {
                 className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-forest-800 text-white font-bold text-sm hover:bg-forest-900 flex items-center justify-center shadow-md"
               >
                 <Phone className="w-4 h-4 mr-2 text-amber-400" />
-                <span>Call Sheila: {BUSINESS_INFO.phoneDisplay}</span>
+                <span>Call Rebecca: {BUSINESS_INFO.phoneDisplay}</span>
               </a>
 
               <button
@@ -509,14 +510,14 @@ export default function QuoteCalculatorSection({ preselectedService }) {
                 {/* 4. Additional Requirements */}
                 <div className="pt-4 border-t border-mint-200/60">
                   <label className="block text-xs font-bold uppercase tracking-wider text-charcoal mb-1.5">
-                    Notes for Sheila & Lincoln (Pets, Wood floors, Gate Code, Focus Areas)
+                    Notes for Rebecca & Team (Emergency timing, bathtub focus, pets, gate code)
                   </label>
                   <textarea
                     name="additionalRequirements"
                     rows="3"
                     value={formData.additionalRequirements}
                     onChange={handleInputChange}
-                    placeholder="Tell us what matters most (e.g. please make wood floors extra shiny, focus on baseboards, have a friendly golden retriever)..."
+                    placeholder="Tell us what matters most (e.g. emergency 2-hour window needed, deep clean bathtub, rental move-in handover date, pet details)..."
                     className="w-full px-4 py-3 rounded-xl border border-mint-200 bg-white text-sm font-medium focus:outline-none focus:border-forest-700"
                   ></textarea>
                 </div>
@@ -530,11 +531,11 @@ export default function QuoteCalculatorSection({ preselectedService }) {
                   {isSubmitting ? (
                     <div className="flex items-center space-x-2">
                       <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                      <span>Calculating Estimate & Sending to Sheila...</span>
+                      <span>Calculating Estimate & Sending to Rebecca...</span>
                     </div>
                   ) : (
                     <>
-                      <span>Lock In Estimate & Submit to Sheila</span>
+                      <span>Lock In Estimate & Submit to Rebecca</span>
                       <ArrowRight className="w-5 h-5 ml-2 text-amber-300" />
                     </>
                   )}
@@ -554,7 +555,7 @@ export default function QuoteCalculatorSection({ preselectedService }) {
                     Estimated Price
                   </span>
                   <span className="text-[11px] font-semibold bg-forest-900 text-amber-300 px-2.5 py-1 rounded-full border border-forest-700">
-                    Dallas & Coppell Local Rate
+                    Dallas (75287) Local Rate
                   </span>
                 </div>
 
@@ -603,10 +604,10 @@ export default function QuoteCalculatorSection({ preselectedService }) {
                   </div>
                   <div>
                     <h4 className="font-display font-bold text-base text-forest-950">
-                      Want to Talk to Sheila Now?
+                      Want to Talk to Rebecca Now?
                     </h4>
                     <p className="text-xs text-charcoal-muted">
-                      Direct mobile line for immediate scheduling.
+                      Direct mobile line for emergency or immediate scheduling.
                     </p>
                   </div>
                 </div>
@@ -614,7 +615,7 @@ export default function QuoteCalculatorSection({ preselectedService }) {
                   href={`tel:${BUSINESS_INFO.phoneRaw}`}
                   className="block w-full py-3 rounded-xl bg-forest-800 text-white font-bold text-sm text-center hover:bg-forest-900 transition-colors shadow-sm"
                 >
-                  Call Sheila: {BUSINESS_INFO.phoneDisplay}
+                  Call Rebecca: {BUSINESS_INFO.phoneDisplay}
                 </a>
               </div>
 
@@ -622,15 +623,15 @@ export default function QuoteCalculatorSection({ preselectedService }) {
               <div className="bg-white rounded-3xl p-6 border border-mint-200 space-y-3">
                 <div className="flex items-center space-x-3 text-xs text-charcoal font-semibold">
                   <ShieldCheck className="w-5 h-5 text-emerald-600 flex-shrink-0" />
-                  <span>10+ Years Trust in Dallas & Coppell</span>
+                  <span>4.8★ Verified Google Rating (12 Reviews)</span>
                 </div>
                 <div className="flex items-center space-x-3 text-xs text-charcoal font-semibold">
                   <Heart className="w-5 h-5 text-amber-500 flex-shrink-0" />
-                  <span>LGBTQ+ Friendly Family Business</span>
+                  <span>Women-Owned & Latino-Owned Business</span>
                 </div>
                 <div className="flex items-center space-x-3 text-xs text-charcoal font-semibold">
                   <Sparkles className="w-5 h-5 text-emerald-600 flex-shrink-0" />
-                  <span>Supplies & Specialized Buffers Included</span>
+                  <span>Emergency 2-Hour Dispatch Available</span>
                 </div>
               </div>
 

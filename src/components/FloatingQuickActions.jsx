@@ -50,14 +50,14 @@ export default function FloatingQuickActions() {
         <a
           href={`tel:${BUSINESS_INFO.phoneRaw}`}
           className="inline-flex items-center px-5 py-3.5 rounded-full bg-forest-800 text-white font-extrabold text-sm shadow-2xl hover:bg-forest-900 transition-all transform hover:scale-105 group border-2 border-amber-300"
-          aria-label="Call Brazilian Cleaning Services"
+          aria-label="Call Orellana’s Cleaning LLC"
         >
           <span className="relative flex h-3 w-3 mr-2.5">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-300 opacity-75"></span>
             <span className="relative inline-flex rounded-full h-3 w-3 bg-amber-400"></span>
           </span>
           <Phone className="w-4 h-4 mr-2 text-amber-300" />
-          <span className="hidden sm:inline">Call Sheila: {BUSINESS_INFO.phoneDisplay}</span>
+          <span className="hidden sm:inline">Call Rebecca: {BUSINESS_INFO.phoneDisplay}</span>
           <span className="sm:hidden">Call {BUSINESS_INFO.phoneDisplay}</span>
         </a>
 

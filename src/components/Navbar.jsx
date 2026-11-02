@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Phone, Clock, MapPin, Sparkles, Menu, X, ArrowRight, Calculator } from 'lucide-react';
+import { Phone, Clock, MapPin, Sparkles, Menu, X, ArrowRight, Calculator, Heart } from 'lucide-react';
 import { BUSINESS_INFO } from '../data/businessInfo';
 
 export default function Navbar() {
@@ -27,8 +27,7 @@ export default function Navbar() {
     { name: 'About', href: '/#about', path: '/#about' },
     { name: 'Services', href: '/#services', path: '/#services' },
     { name: 'Transformations', href: '/#transformations', path: '/#transformations' },
-    // { name: '16 Reviews', href: '/#reviews', path: '/#reviews' },
-    // { name: 'Instant Estimate', isRoute: true, path: '/quote' },
+    { name: 'Instant Estimate', isRoute: true, path: '/quote' },
     { name: 'Contact', isRoute: true, path: '/contact' },
   ];
 
@@ -40,23 +39,21 @@ export default function Navbar() {
           <div className="flex items-center space-x-4 sm:space-x-6">
             <span className="flex items-center text-mint-100 font-medium">
               <MapPin className="w-3.5 h-3.5 mr-1.5 text-amber-400" />
-              18065 Appleridge Dr #2622, Dallas, TX 75287
+              3621 Frankford Rd, Dallas, TX 75287
             </span>
             <span className="hidden md:flex items-center text-mint-200">
               <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 mr-2"></span>
-              Sheila & Lincoln Family Cleaning (10+ Yrs)
+              Women-Owned & Latino-Owned • Led by Rebecca
+            </span>
+            <span className="hidden lg:inline-flex text-[11px] bg-forest-900 border border-forest-700 text-amber-300 px-2 py-0.5 rounded-full font-semibold">
+              Emergency 2-Hr Response
             </span>
           </div>
 
           <div className="flex items-center space-x-4">
-            <a
-              href={BUSINESS_INFO.googleMapsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center text-amber-400 font-bold hover:underline"
-            >
-              ★ 5.0 Stars (16 Google Reviews)
-            </a>
+            <span className="flex items-center text-amber-400 font-bold">
+              ★ 4.8 Stars (12 Google Reviews)
+            </span>
             <a
               href={`tel:${BUSINESS_INFO.phoneRaw}`}
               className="font-extrabold text-mint-200 hover:text-white transition-colors flex items-center ml-2 bg-forest-800/80 px-2.5 py-1 rounded-lg border border-forest-700"
@@ -70,10 +67,11 @@ export default function Navbar() {
 
       {/* Main Navbar */}
       <nav
-        className={`transition-all duration-300 ${isScrolled || isQuotePage || isContactPage
+        className={`transition-all duration-300 ${
+          isScrolled || isQuotePage || isContactPage
             ? 'glass-nav shadow-soft py-2.5 bg-white/95'
             : 'bg-white/95 backdrop-blur-md py-3.5'
-          }`}
+        }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
@@ -84,10 +82,10 @@ export default function Navbar() {
               </div>
               <div className="flex flex-col">
                 <span className="font-display font-extrabold text-lg sm:text-xl tracking-tight text-forest-950 group-hover:text-forest-700 transition-colors">
-                  Brazilian <span className="text-forest-600 font-semibold">Cleaning</span>
+                  Orellana’s <span className="text-forest-600 font-semibold">Cleaning</span>
                 </span>
                 <span className="text-[10px] uppercase tracking-widest font-bold text-charcoal-muted">
-                  Services • Dallas & Coppell TX
+                  LLC • Dallas, Texas • 4.8 ★
                 </span>
               </div>
             </Link>
@@ -101,10 +99,11 @@ export default function Navbar() {
                     <Link
                       key={link.name}
                       to={link.path}
-                      className={`text-sm font-bold transition-all relative py-1 flex items-center space-x-1 ${isActive
+                      className={`text-sm font-bold transition-all relative py-1 flex items-center space-x-1 ${
+                        isActive
                           ? 'text-forest-800 font-extrabold underline decoration-amber-400 decoration-2 underline-offset-4'
                           : 'text-charcoal hover:text-forest-800'
-                        }`}
+                      }`}
                     >
                       {link.path === '/quote' && <Calculator className="w-3.5 h-3.5 text-amber-500" />}
                       {link.path === '/contact' && <Phone className="w-3.5 h-3.5 text-forest-700" />}
@@ -144,15 +143,16 @@ export default function Navbar() {
                 className="flex items-center px-4 py-2.5 rounded-xl text-forest-950 font-bold text-sm bg-mint-100 hover:bg-mint-200 transition-all border border-mint-300"
               >
                 <Phone className="w-4 h-4 mr-2 text-forest-800" />
-                <span>Call</span>
+                <span>Call Rebecca</span>
               </a>
 
               <Link
                 to="/quote"
-                className={`flex items-center px-5 py-2.5 rounded-xl font-extrabold text-sm shadow-md transition-all transform hover:-translate-y-0.5 ${isQuotePage
+                className={`flex items-center px-5 py-2.5 rounded-xl font-extrabold text-sm shadow-md transition-all transform hover:-translate-y-0.5 ${
+                  isQuotePage
                     ? 'bg-amber-400 text-forest-950 hover:bg-amber-300'
                     : 'bg-forest-800 text-white hover:bg-forest-900 shadow-elevated'
-                  }`}
+                }`}
               >
                 <Calculator className="w-4 h-4 mr-1.5" />
                 <span>Instant Estimate Page</span>
@@ -193,7 +193,7 @@ export default function Navbar() {
                       onClick={() => setMobileMenuOpen(false)}
                       className="px-3 py-2 rounded-lg text-base font-bold text-forest-900 bg-mint-100 flex items-center justify-between"
                     >
-                      <span>{link.name} (Separate Page)</span>
+                      <span>{link.name} (Dedicated Page)</span>
                       <ArrowRight className="w-4 h-4 text-forest-700" />
                     </Link>
                   );
@@ -237,7 +237,7 @@ export default function Navbar() {
                   className="flex items-center justify-center w-full py-3 rounded-xl bg-forest-800 text-white font-bold text-sm"
                 >
                   <Phone className="w-4 h-4 mr-2 text-amber-300" />
-                  Call Sheila: {BUSINESS_INFO.phoneDisplay}
+                  Call Rebecca: {BUSINESS_INFO.phoneDisplay}
                 </a>
               </div>
             </div>
